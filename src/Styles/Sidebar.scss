@@ -1,12 +1,16 @@
 .sidebar {
     position: fixed;
-    background: #000;
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(9,9,121,0) 84%, rgba(0,212,255,0) 100%);
     height: 100vh;
     z-index: 1111;
 
     .Logo{
-        width: 60%;
         padding: 20px;
+    }
+    ul:hover a {
+        width: 140px;
+        opacity: 1;
     }
 
     ul{
@@ -17,17 +21,43 @@
         flex-direction: column;
         justify-content: center;
 
-        svg {
-            color: #fff;
-            font-size: 30px;
-        }
+       
+li:hover{
+    color: #fff;
+    font-size: 22px;
+
+    a {
+        
+        font-weight: 600;
+    }
+}
 
         li{
             padding: 10px;
-            color: #fff;
             display: flex;
+            color: #ffffffc8;
             gap: 20px;
             font-size: 21px;
+            cursor: pointer;
+           
+
+          
+
+            svg {
+           
+                font-size: 30px;
+                color: inherit;
+            }
+
+            a{
+                width: 0;
+                overflow: hidden;
+                opacity: 0;
+                color: inherit;
+                transition: width 1s, opacity 1s;
+            }
+
+            
         }
     }
 }

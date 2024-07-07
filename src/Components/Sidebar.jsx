@@ -28,6 +28,7 @@ const Sidebar = () => {
       <ul>
         {links.map((link, index) => (
           <li key={index}>
+            
             {link.icon}
             <Link to={link.url}>{link.name}</Link>
           </li>

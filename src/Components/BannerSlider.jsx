@@ -18,7 +18,7 @@ function BannerSlider() {
 
   const Movies = () => {
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&api_key=831780a63e8202e8b7590cfc472f8c44"
+      "https://api.themoviedb.org/3/discover/movie?language=en-US&page=2&api_key=831780a63e8202e8b7590cfc472f8c44"
     )
       .then((res) => res.json())
       .then((data) => setMymovies(data.results));
@@ -34,17 +34,17 @@ function BannerSlider() {
   return (
     <div className="slider-container">
       <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
-        {Mymovies.map((movie, index) => (
+        {Mymovies.map((banner, index) => (
           <div key={index} className="banner-slide">
             <div
               className="banner-container"
               style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/original${banner.backdrop_path})`,
               }}
             >
               <div className="banner-content">
-                <h2>{movie.title}</h2>
-                <p>{movie.overview}</p>
+                <h2>{banner.title}</h2>
+                <p>{banner.overview}</p>
               </div>
             </div>
 
