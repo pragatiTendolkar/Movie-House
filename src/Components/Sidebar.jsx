@@ -5,6 +5,7 @@ import { GoHome } from "react-icons/go";
 import { LuClapperboard } from "react-icons/lu";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { TiThMenu } from "react-icons/ti";
+import Logo from '../images/disneylogo.svg'
 
 const Sidebar = () => {
   const [links, setLinks] = useState([]);
@@ -22,6 +23,8 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+
+      <img src={Logo} alt=""  className='Logo'/>
       <ul>
         {links.map((link, index) => (
           <li key={index}>

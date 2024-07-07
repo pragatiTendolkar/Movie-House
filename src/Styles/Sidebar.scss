@@ -4,11 +4,22 @@
     height: 100vh;
     z-index: 1111;
 
+    .Logo{
+        width: 60%;
+        padding: 20px;
+    }
+
     ul{
         padding: 20px;
+        height: 73%;
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        justify-content: center;
 
         svg {
             color: #fff;
+            font-size: 30px;
         }
 
         li{
@@ -16,6 +27,7 @@
             color: #fff;
             display: flex;
             gap: 20px;
+            font-size: 21px;
         }
     }
 }

@@ -52,7 +52,8 @@ function BannerSlider() {
         ))}
       </Slider>
 
-      <div className="thumbnail-slider-container">
+<div className="thumbnail-section">
+<div className="thumbnail-slider-container">
         <Slider
           asNavFor={nav1}
           ref={slider => (sliderRef2 = slider)}
@@ -61,13 +62,19 @@ function BannerSlider() {
           focusOnSelect={true}
         >
 
+
           {Mymovies.map((movie, index) => (
             <div className="banner-thumbnail">
               <img key={index} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="banner-thumbnail-img rounded-lg" />
             </div>
           ))}
+
+          
         </Slider>
       </div>
+</div>
+
+  
     </div>
   );
 }
