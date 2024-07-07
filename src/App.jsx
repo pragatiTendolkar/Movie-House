@@ -10,14 +10,14 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="dashboard">
-      <Sidebar />  {/* Sidebar component for navigation */}
+      <Sidebar />  
       
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Route to Home component */}
-          <Route path="/movies" element={<Movies />} /> {/* Route to Movies component */}
-          <Route path="/tv" element={<TV />} /> {/* Route to TV component */}
-          <Route path="/categories" element={<Categories />} /> {/* Route to Categories component */}
+          <Route path="/" element={<Home />} /> 
+          <Route path="/movies" element={<Movies />} /> 
+          <Route path="/tv" element={<TV />} /> 
+          <Route path="/categories" element={<Categories />} /> 
         </Routes>
       </div>
     </div>

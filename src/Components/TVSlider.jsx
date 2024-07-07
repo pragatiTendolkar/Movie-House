@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 
-function BannerSlider() {
+function TVSlider() {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   let sliderRef1 = useRef(null);
@@ -18,7 +18,7 @@ function BannerSlider() {
 
   const Movies = () => {
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&api_key=831780a63e8202e8b7590cfc472f8c44"
+      "https://api.themoviedb.org/3/discover/tv?language=en-US&page=1&api_key=831780a63e8202e8b7590cfc472f8c44"
     )
       .then((res) => res.json())
       .then((data) => setMymovies(data.results));
@@ -72,4 +72,4 @@ function BannerSlider() {
   );
 }
 
-export default BannerSlider;
+export default TVSlider;

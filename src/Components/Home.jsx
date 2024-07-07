@@ -1,7 +1,15 @@
 import React from "react";
+import BannerSlider from "./BannerSlider"
+import SimpleSlider from "./SimpleSlider";
+
 
 const Home = () => {
-  return <div>Home</div>;
+  return(
+    <>
+    < BannerSlider />
+    
+    </>
+  )
 };
 
 export default Home;

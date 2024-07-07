@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-
+import '../Styles/Sidebar.scss';
+import { GoHome } from "react-icons/go";
+import { LuClapperboard } from "react-icons/lu";
+import { PiTelevisionSimple } from "react-icons/pi";
+import { TiThMenu } from "react-icons/ti";
 
 const Sidebar = () => {
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    // Mock data for the sidebar links
+    const mockData = [
+      { name: 'Home', icon: <GoHome />, url: '/' },
+      { name: 'Movies', icon: <LuClapperboard />, url: '/movies' },
+      { name: 'TV', icon: <PiTelevisionSimple />, url: '/tv' },
+      { name: 'Categories', icon: <TiThMenu />, url: '/categories' },
+    ];
+    setLinks(mockData);
+  }, []);
+
   return (
     <div className="sidebar">
-        
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/movies">Movies</Link></li>
-        <li><Link to="/tv">TV</Link></li>
-        <li><Link to="/categories">Categories</Link></li>
+        {links.map((link, index) => (
+          <li key={index}>
+            {link.icon}
+            <Link to={link.url}>{link.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
-
 
 export default Sidebar;

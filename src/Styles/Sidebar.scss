@@ -1,0 +1,21 @@
+.sidebar {
+    position: fixed;
+    background: #000;
+    height: 100vh;
+    z-index: 1111;
+
+    ul{
+        padding: 20px;
+
+        svg {
+            color: #fff;
+        }
+
+        li{
+            padding: 10px;
+            color: #fff;
+            display: flex;
+            gap: 20px;
+        }
+    }
+}
