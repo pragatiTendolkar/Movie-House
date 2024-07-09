@@ -8,23 +8,23 @@ import '../Styles/simpleslider.scss'
 
 const API_KEY = "831780a63e8202e8b7590cfc472f8c44";
 
-export default function Popular() {
-    const [popular, setPopular] = useState([]);
+export default function TopMovies() {
+    const [topmovies, setTopmovies] = useState([]);
 
-    const fetchpopular = async () => {
+    const fetchtopmovies = async () => {
         try {
             const response = await fetch(
-                `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API_KEY}`
+                `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${API_KEY}`
             );
             const data = await response.json();
-            setPopular(data.results.slice(0, 11));
+            setTopmovies(data.results.slice(0, 11));
         } catch (error) {
-            console.error("Error fetching popular:", error);
+            console.error("Error fetching topmovies:", error);
         }
     };
 
     useEffect(() => {
-        fetchpopular();
+        fetchtopmovies();
     }, []);
 
     const settings = {
@@ -36,12 +36,12 @@ export default function Popular() {
 
     return (
         <div className="list-slider">
-            <h2>Popular</h2>
+            <h2>Top Rated</h2>
             <Slider {...settings}>
-                {popular.map((popular) => (
-                    <div key={popular.id} className="list-banner-slide">
+                {topmovies.map((topmovie) => (
+                    <div key={topmovie.id} className="list-banner-slide">
                         <div className="list-container">
-                                          <img  src={`https://image.tmdb.org/t/p/original${popular.poster_path}`} alt="" className="banner-thumbnail-img rounded-lg" />
+                                          <img  src={`https://image.tmdb.org/t/p/original${topmovie.poster_path}`} alt="" className="banner-thumbnail-img rounded-lg" />
 
                         </div>
                     </div>

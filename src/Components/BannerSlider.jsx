@@ -4,6 +4,7 @@ import Slider from "react-slick";
 function BannerSlider() {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
+  const [genres, setGenres] = useState([]);
   let sliderRef1 = useRef(null);
   let sliderRef2 = useRef(null);
 
@@ -12,18 +13,20 @@ function BannerSlider() {
     setNav2(sliderRef2);
   }, []);
 
-
+  const API_KEY = "831780a63e8202e8b7590cfc472f8c44";
 
   const [Mymovies, setMymovies] = useState([]);
 
   const Movies = () => {
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?language=en-US&page=2&api_key=831780a63e8202e8b7590cfc472f8c44"
+      `https://api.themoviedb.org/3/discover/movie?language=en-US&page=2&api_key=${API_KEY}`
     )
       .then((res) => res.json())
-      .then((data) => setMymovies(data.results));
+      .then((data) => setMymovies(data.results.slice(1, 11)));
   };
+
   console.log("array", Mymovies);
+
   useEffect(() => {
     Movies();
   }, []);
@@ -31,10 +34,36 @@ function BannerSlider() {
 
 
 
+  const fetchGenres = async () => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=${API_KEY}`
+        );
+        const data = await response.json();
+        setGenres(data.genres);
+    } catch (error) {
+        console.error("Error fetching genres:", error);
+    }
+};
+
+
+
+
+const getMoviesByGenre = () => {
+  return genres.map((genre) => ({
+      genre: genre.name,
+      movies: movies.filter((movie) => movie.genre_ids.includes(genre.id)),
+  }));
+};
+
+
+
   return (
     <div className="slider-container">
       <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
-        {Mymovies.map((banner, index) => (
+      {getMoviesByGenre().map(({ genre, movies }) => (
+
+        
           <div key={index} className="banner-slide">
             <div
               className="banner-container"
@@ -54,10 +83,13 @@ function BannerSlider() {
 
 <div className="thumbnail-section">
 <div className="thumbnail-slider-container">
+  <div className="extra-space">
+
+  </div>
         <Slider
           asNavFor={nav1}
           ref={slider => (sliderRef2 = slider)}
-          slidesToShow={14}
+          slidesToShow={7}
           swipeToSlide={true}
           focusOnSelect={true}
         >

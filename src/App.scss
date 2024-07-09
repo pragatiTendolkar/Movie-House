@@ -34,7 +34,7 @@ body{
   color: white;
   -webkit-box-shadow: inset 147px 0px 299px -38px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 147px 0px 299px -38px rgba(0, 0, 0, 0.75);
-  box-shadow: inset 424px 0px 577px 15px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 124px 0px 577px 15px rgba(0, 0, 0, 0.75);
 }
 
 .banner-container.no-image {
@@ -58,7 +58,10 @@ body{
 .banner-thumbnail-img {
   width: 150px;
 }
-
+.slick-slide img {
+  display: block;
+  opacity: 0.8;
+}
 
 .thumbnail-slider-container {
   position: absolute;
@@ -66,6 +69,24 @@ body{
   height: 100%;
   top: 70%;
   margin-left: 90px;
+
+  .slick-slider {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+  .slick-list{
+    width: 600px;
+  }
+
+  .slick-prev, .slick-next {
+   position: relative; 
+
+}
+
+
+
 }
 
 .thumbnail-slider-container .slick-list {
@@ -83,9 +104,11 @@ body{
 }
 
 .thumbnail-slider-container .slick-active.slick-current img {
-  box-shadow: 0px 0px 0px 5px #fff;
+  box-shadow: 0px 0px 0px 3px #fff;
   position: relative;
-  scale: 1.04;
+  scale: 1.2;
+  opacity: 1;
+
 }
 
 
