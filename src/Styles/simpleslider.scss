@@ -1,13 +1,74 @@
-.list-slider{
+.list-slider {
     margin-top: 50px;
     padding: 0 100px;
 
-h2{
-    color: #fff;
-    font-size: 2rem;
+    h2 {
+        color: #fff;
+        font-size: 2rem;
+    }
+
 }
+
+.trailer-btn {
+    padding: 10px;
+    background: #00000080;
+    width: 37%;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.5s all;
+
+
+   
+}
+
+
+.trailer-btn:hover{
+    scale:0.9;
+}
+
+.trailer-modal {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000007a;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1111;
+
+}
+
+.banner-content {
+
+
+
+
+
     
+    .genre-list {
+        display: flex;
+        gap: 20px;
+        padding: 20px 0;
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        li {
+            border-right: 2px solid #fff;
+            padding: 0 10px;
+            line-height: 17px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        :last-child {
+            border: none;
+        }
+
+    }
+
 }
-
-
-
