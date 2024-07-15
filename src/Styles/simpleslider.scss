@@ -11,12 +11,15 @@
 
 .trailer-btn {
     padding: 10px;
-    background: #00000080;
+    background: rgb(255 255 255);
     width: 37%;
     border-radius: 5px;
     font-size: 1.4rem;
     cursor: pointer;
     transition: 0.5s all;
+    color: #000;
+    font-weight: 600;
+    margin-top: 20px;
 
 
    
@@ -68,6 +71,11 @@
         :last-child {
             border: none;
         }
+
+        :hover {
+    cursor: pointer;
+    scale: 1.2;
+}
 
     }
 

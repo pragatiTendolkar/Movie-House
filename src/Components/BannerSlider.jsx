@@ -60,11 +60,8 @@ function BannerSlider() {
                 `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`
             );
             const data = await response.json();
-            if (data.results.length > 0) {
-                return data.results[0]; // Get the first trailer
-            } else {
-                return null;
-            }
+            const trailer = data.results.find(video => video.type === "Trailer");
+            return trailer || null;
         } catch (error) {
             console.error("Error fetching trailers:", error);
             return null;
@@ -139,7 +136,7 @@ function BannerSlider() {
                         <iframe
                             width="560"
                             height="315"
-                            src={`https://www.youtube.com/embed/${selectedVideo}`}
+                            src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
@@ -153,8 +150,8 @@ function BannerSlider() {
     );
 }
 
-// BannerSlider.propTypes = {
-//     API_KEY: PropTypes.string,
-// };
+BannerSlider.propTypes = {
+    API_KEY: PropTypes.string,
+};
 
 export default BannerSlider;

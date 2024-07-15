@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Styles/simpleslider.scss";
 
-const API_KEY = "831780a63e8202e8b7590cfc472f8c44"; // Replace with process.env.REACT_APP_TMDB_API_KEY if using environment variables
+const API_KEY = "831780a63e8202e8b7590cfc472f8c44"; 
 
 export default function SimpleSlider({ category, limit }) {
     const [movies, setMovies] = useState([]);
